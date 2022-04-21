@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import scipy.sparse as sp
 import math
+from sklearn.datasets import fetch_rcv1
 
 
 def freq(x, prob=True):
@@ -28,7 +29,7 @@ def info_gain(x, y):
         suma += i * math.log(i, 2)
     return entropy(x) + entropy(y) - -suma
 
-
+# Zad 5
 def convert_to_sparse_pandas(DataFrame, exclude_columns=[]):
     DataFrame = DataFrame.copy()
     exclude_columns = set(exclude_columns)
@@ -68,4 +69,6 @@ if __name__ == '__main__':
     print(freq2(data_one_hot_sparse['eggs_True'], data_one_hot_sparse['type_bird'], prob=True))
 
     # Zad 6
-
+    rcv1 = fetch_rcv1()
+    df = pd.DataFrame(rcv1.data, columns=rcv1.target_names)
+    print(df.head())
