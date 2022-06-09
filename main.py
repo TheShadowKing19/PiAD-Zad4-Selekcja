@@ -29,6 +29,7 @@ def info_gain(x, y):
         suma += i * math.log(i, 2)
     return entropy(x) + entropy(y) - -suma
 
+
 # Zad 5
 def convert_to_sparse_pandas(DataFrame, exclude_columns=[]):
     DataFrame = DataFrame.copy()
